@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Recommendation System</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <style background-image : url(https://images.theconversation.com/files/559208/original/file-20231114-25-gsa01.jpeg?ixlib=rb-4.1.0&rect=23%2C0%2C7916%2C5297&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip);></style>
+    <div class="container">
+        <h1 style="background-color: lightgrey;">Book Recommendation System</h1>
+        <div id="auth-container">
+            <div class="auth-card">
+                <div class="tab-switch">
+                    <button id="login-tab" class="active" type="button">Log In</button>
+                    <button id="register-tab" type="button">Register</button>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <input type="text" id="login-username" placeholder="User Name" required />
+                    <input type="password" id="login-password" placeholder="Enter Password" required />
+                    <div class="remember-row">
+                        <input type="checkbox" id="remember-me" />
+                        <label for="remember-me">Remember Password</label>
+                    </div>
+                    <button type="submit" class="gradient-btn">Log in</button>
+                </form>
+                <form id="register-form" class="auth-form" style="display:none;">
+                    <input type="text" id="register-username" placeholder="User Name" required />
+                    <input type="password" id="register-password" placeholder="Enter Password" required />
+                    <div class="remember-row">
+                        <input type="checkbox" id="terms-cond" required />
+                        <label for="terms-cond">I agree to the Terms & Condition</label>
+                    </div>
+                    <button type="submit" class="gradient-btn">Register</button>
+                </form>
+            </div>
+        </div>
+        <div id="book-container" style="display: none;">
+            <div class="header-section">
+                <h2>Explore Books</h2>
+                <div class="categories">
+                    <button class="category-btn active">All</button>
+                    <button class="category-btn">Fiction</button>
+                    <button class="category-btn">Non-Fiction</button>
+                    <button class="category-btn">Science</button>
+                    <button class="category-btn">History</button>
+                </div>
+            </div>
+
+            <div class="books-grid" id="book-list"></div>
+
+            <div class="book-detail-panel" id="book-detail" style="display: none;">
+                <div class="book-cover">
+                    <img id="book-cover-img" src="" alt="Book Cover" />
+                </div>
+                <div class="book-info">
+                    <h3 id="detail-title"></h3>
+                    <p class="author" id="detail-author"></p>
+                    <div class="book-meta">
+                        <span id="detail-category"></span>
+                        <span id="detail-rating"></span>
+                    </div>
+                    <div class="book-summary">
+                        <h4>Summary</h4>
+                        <p id="detail-summary"></p>
+                    </div>
+                    <div class="book-links">
+                        <a href="#" id="read-link" class="action-btn" target="_blank">Read Online</a>
+                        <a href="#" id="buy-link" class="action-btn" target="_blank">Buy Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="add-book-container" class="add-book-section">
+                <h2>Add a New Book</h2>
+                <form id="add-book-form">
+                    <input type="text" id="book-title" placeholder="Book Title" required />
+                    <input type="text" id="book-author" placeholder="Author" required />
+                    <select id="book-category" required>
+                        <option value="">Select Category</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                    </select>
+                    <input type="url" id="book-cover" placeholder="Book Cover URL" required />
+                    <input type="url" id="read-url" placeholder="Read Online URL" />
+                    <input type="url" id="buy-url" placeholder="Buy Book URL" />
+                    <textarea id="book-summary" placeholder="Summary" required></textarea>
+                    <button type="submit" class="gradient-btn">Add Book</button>
+                </form>
+            </div>
+        </div>
+        <div id="reading-progress-container" style="display: none; margin-top: 20px;">
+            <h2>Update Reading Progress</h2>
+            <form id="reading-progress-form">
+                <select id="progress-book-select" required>
+                    <option value="">Select a book</option>
+                </select>
+                <input type="number" id="progress-input" placeholder="Progress %" min="0" max="100" required />
+                <button type="submit">Update Progress</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
